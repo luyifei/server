@@ -1,0 +1,48 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Magic Mirror Server</display-name>
+    
+    <listener>
+        <listener-class>
+            me.weyo.magicmirror.server.listener.ServerListener
+        </listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>Calendar</servlet-name>
+        <servlet-class>me.weyo.magicmirror.server.controller.CalendarController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AQI</servlet-name>
+        <servlet-class>me.weyo.magicmirror.server.controller.AqiController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Command</servlet-name>
+        <servlet-class>me.weyo.magicmirror.server.controller.HttpCommandController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InitServlet</servlet-name>
+        <servlet-class>me.weyo.magicmirror.server.controller.InitController</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Calendar</servlet-name>
+        <url-pattern>/calendar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AQI</servlet-name>
+        <url-pattern>/aqi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Command</servlet-name>
+        <url-pattern>/command</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InitServlet</servlet-name>
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
+</web-app>
